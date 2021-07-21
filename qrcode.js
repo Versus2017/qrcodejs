@@ -546,7 +546,7 @@ var QRCode;
 	 * @param {String} [vOption.colorLight="#ffffff"]
 	 * @param {QRCode.CorrectLevel} [vOption.correctLevel=QRCode.CorrectLevel.H] [L|M|Q|H]
 	 */
-	QRCode = function (el, vOption) {
+	QRCode = function (el, vOption, fn) {
 		this._htOption = {
 			width : 256,
 			height : 256,
@@ -580,7 +580,7 @@ var QRCode;
 		this._android = _getAndroid();
 		this._el = el;
 		this._oQRCode = null;
-		this._oDrawing = new Drawing(this._el, this._htOption);
+		this._oDrawing = new Drawing(this._el, this._htOption, fn);
 
 		if (this._htOption.text) {
 			this.makeCode(this._htOption.text);
